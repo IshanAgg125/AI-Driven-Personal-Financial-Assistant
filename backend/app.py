@@ -1,20 +1,22 @@
-from flask import Flask, jasonify, request
-
-
-from flask_cors import CORS
+from flask import Flask, jsonify
+from flask_cors import CORS  # If you're using CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS if needed
 
-@app.route('/api/login', methods=['POST'])
+data = {"message": "Hello from the Python backend!"}
 
-def login_user():
-    user_info = request.json
-    
-    return jasonify({"status": "success", "message": "User authenticated successfully"})
+@app.route('/')
 
-@app.route('/api/financial_advice', methods=['GET'])
-def getFinancialAdvice():
-    return jasonify({"advice": "Based on your spending habits, consider saving 10% more each month."})
+
+def home():
+    return "Welcome to the Flask App!"
+
+@app.route('/api/data', methods=['GET'])
+
+
+def get_data():
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)
