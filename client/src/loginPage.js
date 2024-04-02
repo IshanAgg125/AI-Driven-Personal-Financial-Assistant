@@ -6,7 +6,7 @@ const LoginPage = ({ onLogin }) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const isAuthenticated = true; // This should come from your auth logic
+      const isAuthenticated = true; // need to verify from the databse
       if(isAuthenticated) {
         onLogin(true); // Inform App component about successful login
         const userObject = { username: username, password: password };
@@ -14,7 +14,6 @@ const LoginPage = ({ onLogin }) => {
         // localStorage.setItem('userInfo', credentialsJson);
         console.log(credentialsJson);
 
-        //alert('Login Successful');
       } else {
         alert('Login Failed');
       }
@@ -26,22 +25,22 @@ const LoginPage = ({ onLogin }) => {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      height: '100vh', // Takes full height of the viewport
+      height: '100vh', 
     };
   
     const inputStyle = {
-      marginBottom: '10px', // Adds space between the inputs
-      padding: '10px', // Makes the input box a bit larger
-      border: '2px solid black', // Adds a black outline to the box
-      borderRadius: '5px', // Optionally adds a slight roundness to the corners
-      width: '20%', // Optionally controls the width to be more responsive
-      minWidth: '250px', // Ensures a minimum width for smaller screens
+      marginBottom: '10px', 
+      padding: '10px', 
+      border: '2px solid black', 
+      borderRadius: '5px',
+      width: '20%', 
+      minWidth: '250px', 
     };
   
     const welcomeTextStyle = {
-      margin: '0px', // Adds some space below the text
-      fontSize: '24px', // Larger text
-      fontWeight: 'bold', // Bold text
+      margin: '0px', 
+      fontSize: '24px', 
+      fontWeight: 'bold',
       textAlign: "center",
     };
   
@@ -57,7 +56,7 @@ const LoginPage = ({ onLogin }) => {
             style={inputStyle}
           />
           <input
-            type="password" // Changed to type="password" to hide input
+            type="password" 
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
