@@ -15,7 +15,7 @@ function App() {
         {isLoggedIn ? (
           <>
             <Navbar />
-            <MainContent /> {/* Render MainContent after login */}
+            <MainContent /> {}
             <FinancialDashboard/>
           </>
         ) : (
