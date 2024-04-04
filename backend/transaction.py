@@ -12,28 +12,28 @@ import random
 #         print(element)
     
 
-def extract_transactions(pdf_path):
-    doc = fitz.open(pdf_path)
-    transactions = []
+# def extract_transactions(pdf_path):
+#     doc = fitz.open(pdf_path)
+#     transactions = []
 
-    for page in doc:
-        text = page.get_text("text")
-        lines = text.split('\n')
-        for line in lines:
-            if line.startswith('02/'):  
-                parts = line.split('$')
-                if len(parts) > 1:
-                    category_part = parts[0].strip()
-                    amount_part = parts[1].strip()
-                    category = category_part.split()[-1]  
-                    amount = amount_part.split()[0]  
-                    try:
-                        amount = float(amount)
-                        transactions.append({"category": category, "amount": amount})
-                    except ValueError:
-                        pass  
+#     for page in doc:
+#         text = page.get_text("text")
+#         lines = text.split('\n')
+#         for line in lines:
+#             if line.startswith('02/'):  
+#                 parts = line.split('$')
+#                 if len(parts) > 1:
+#                     category_part = parts[0].strip()
+#                     amount_part = parts[1].strip()
+#                     category = category_part.split()[-1]  
+#                     amount = amount_part.split()[0]  
+#                     try:
+#                         amount = float(amount)
+#                         transactions.append({"category": category, "amount": amount})
+#                     except ValueError:
+#                         pass  
 
-    return transactions
+#     return transactions
 
 # Example usage
 
